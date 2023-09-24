@@ -1,0 +1,27 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia
+{% endblock %}
+
+{% block body %}
+    <h1>Create your wiki</h1>
+    <div>    
+        <form action="{% url 'save' %}" method="POST">
+            {% csrf_token %}
+            <div>
+                <p>Title:</p> 
+                <input type="text" name="title">
+            </div>
+            <div>
+                <p>Context:</p>
+                <textarea name="context" id="" cols="30" rows="10"></textarea>
+            </div>
+            <div>
+                <input type="submit" value="Save">
+                <input type="hidden" name="state" value="created">
+            </div>
+        </form>
+    </div>
+    
+{% endblock %}
